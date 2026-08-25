@@ -1,0 +1,627 @@
+/* --- BASE & VARIABLES --- */
+:root {
+    --black: #000000;
+    --navy: #071426;
+    --navy-light: #0d213a;
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.4);
+    --accent-blue: #00f0ff;
+    --font-primary: 'Space Grotesk', sans-serif;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--text-main);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    cursor: none; /* Hide default for custom cursor */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--navy);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* --- CUSTOM CURSOR --- */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--text-main);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: width 0.3s, height 0.3s, background 0.3s, mix-blend-mode 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference;
+}
+
+#cursor.active {
+    width: 80px;
+    height: 80px;
+    background: var(--glass);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    mix-blend-mode: normal;
+}
+
+.cursor-text {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--text-main);
+}
+#cursor.active .cursor-text {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #cursor { display: none; }
+    body { cursor: auto; }
+}
+
+/* --- INTRO & PEEL LAYER --- */
+#intro-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transformation origin for the peel effect */
+    transform-origin: bottom right;
+    box-shadow: -20px 20px 60px rgba(0,0,0,0.8);
+}
+
+.intro-lockup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.intro-logo-wrap, .intro-text-wrap {
+    overflow: hidden;
+}
+
+.intro-logo {
+    width: 60px;
+    transform: translateX(-120%);
+}
+
+.intro-brand {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transform: translateX(120%);
+}
+
+/* --- MAIN CONTENT & NAVBAR --- */
+#main-content {
+    background-color: var(--navy);
+    min-height: 100vh;
+    opacity: 0; /* Hidden initially until peel */
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+.nav-logo {
+    width: 30px;
+}
+
+.nav-menu {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+/* --- 01. HERO --- */
+.sec-hero {
+    min-height: 100vh; /* Changed from height to min-height */
+    display: flex;
+    align-items: center;
+    padding: 120px 5vw 60px; /* Added top padding to prevent navbar overlap */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-line {
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.hero-visual-wrapper {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45vw;
+    height: 45vw;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.hero-object {
+    width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--accent-blue);
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* --- 02. WHAT WE BUILD --- */
+.sec-build {
+    background: var(--black);
+    width: 100%;
+    /* REMOVED: height: 500vh. GSAP will handle the scroll height now. */
+}
+.build-pinned {
+    min-height: 100vh; /* Changed from height to min-height */
+    display: flex;
+    align-items: center;
+    padding: 100px 10vw;
+    justify-content: space-between;
+}
+
+.build-left h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.build-right {
+    position: relative;
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.build-visual-container {
+    width: 100%;
+    height: 80%;
+    background: var(--navy-light);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+.build-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+.build-labels {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.b-label {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* --- 03. TECHNOLOGY ORBIT --- */
+.sec-tech {
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    perspective: 1500px;
+}
+.tech-title {
+    position: absolute;
+    top: 15%;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+.tech-orbit-container {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    margin-top: 40px;
+    transform-style: preserve-3d;
+}
+
+/* The physical dashed rings aligned to the 4 axes */
+.visual-ring {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.08); /* Dimmer base ring */
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+/* Using rotate3d to create perfectly angled diagonal rings */
+.v-ring-ew   { transform: rotate3d(1, 0, 0, 90deg); }
+.v-ring-ns   { transform: rotate3d(0, 1, 0, 90deg); }
+.v-ring-nwse { transform: rotate3d(-1, 1, 0, 90deg); }
+.v-ring-nesw { transform: rotate3d(1, 1, 0, 90deg); }
+
+/* --- PATH HIGHLIGHTERS (The Glowing Dots) --- */
+.highlighter-wrap {
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+}
+
+.highlighter-dot {
+    position: absolute;
+    top: -3px; /* Centered precisely on the ring border */
+    left: 50%;
+    width: 6px; 
+    height: 6px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue);
+    transform: translateX(-50%);
+}
+
+/* Spin the highlighters along the 2D edge of the 3D-rotated rings */
+@keyframes spinHighlighter {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+/* Zipping around at their own fast, decoupled speeds (some in reverse!) */
+.hl-ew   { animation: spinHighlighter 12s linear infinite; }
+.hl-ns   { animation: spinHighlighter 18s linear infinite reverse; }
+.hl-nwse { animation: spinHighlighter 14s linear infinite; }
+.hl-nesw { animation: spinHighlighter 22s linear infinite reverse; }
+
+
+.orbit-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 110px; height: 110px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.orbit-center img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+}
+
+/* Individual Technology Nodes */
+.tech-node {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 120px; height: 40px;
+    margin-top: -20px; margin-left: -60px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ffffff;
+    transform-style: preserve-3d; 
+}
+
+
+/* --- FERRIS WHEEL MATH (4 DIRECTIONS) --- */
+@keyframes orbitEW {
+    0% { transform: rotate3d(0, 1, 0, 0deg) translateZ(240px) rotate3d(0, 1, 0, 0deg); }
+    100% { transform: rotate3d(0, 1, 0, 360deg) translateZ(240px) rotate3d(0, 1, 0, -360deg); }
+}
+@keyframes orbitNS {
+    0% { transform: rotate3d(1, 0, 0, 0deg) translateZ(240px) rotate3d(1, 0, 0, 0deg); }
+    100% { transform: rotate3d(1, 0, 0, 360deg) translateZ(240px) rotate3d(1, 0, 0, -360deg); }
+}
+@keyframes orbitNWSE {
+    0% { transform: rotate3d(1, 1, 0, 0deg) translateZ(240px) rotate3d(1, 1, 0, 0deg); }
+    100% { transform: rotate3d(1, 1, 0, 360deg) translateZ(240px) rotate3d(1, 1, 0, -360deg); }
+}
+@keyframes orbitNESW {
+    0% { transform: rotate3d(1, -1, 0, 0deg) translateZ(240px) rotate3d(1, -1, 0, 0deg); }
+    100% { transform: rotate3d(1, -1, 0, 360deg) translateZ(240px) rotate3d(1, -1, 0, -360deg); }
+}
+
+/* 
+  INDEPENDENT ORBIT SPEEDS & SPACING
+  Each orbit now has a totally different total duration.
+  To keep items from stacking on top of each other, the negative delay 
+  must perfectly divide that specific orbit's duration by 4.
+*/
+
+/* East-West: 36s (Items spaced by 9s) */
+.orbit-ew { animation: orbitEW 36s linear infinite; }
+.ew-1 { animation-delay: 0s; }
+.ew-2 { animation-delay: -9s; }
+.ew-3 { animation-delay: -18s; }
+.ew-4 { animation-delay: -27s; }
+
+/* North-South: 44s (Items spaced by 11s) */
+.orbit-ns { animation: orbitNS 44s linear infinite; }
+.ns-1 { animation-delay: 0s; }
+.ns-2 { animation-delay: -11s; }
+.ns-3 { animation-delay: -22s; }
+.ns-4 { animation-delay: -33s; }
+
+/* NW-SE Diagonal: 28s (Items spaced by 7s - Fastest Track) */
+.orbit-nwse { animation: orbitNWSE 28s linear infinite; }
+.nwse-1 { animation-delay: 0s; }
+.nwse-2 { animation-delay: -7s; }
+.nwse-3 { animation-delay: -14s; }
+.nwse-4 { animation-delay: -21s; }
+
+/* NE-SW Diagonal: 40s (Items spaced by 10s) */
+.orbit-nesw { animation: orbitNESW 40s linear infinite; }
+.nesw-1 { animation-delay: 0s; }
+.nesw-2 { animation-delay: -10s; }
+.nesw-3 { animation-delay: -20s; }
+.nesw-4 { animation-delay: -30s; }
+
+/* --- 04. SELECTED WORK --- */
+.sec-work {
+    min-height: 120vh; /* Changed from strict height */
+    padding: 10vh 0;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-container {
+    width: 80vw;
+    height: 70vh;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(0.8); /* Animated via GSAP */
+}
+
+.work-visual {
+    position: absolute;
+    width: 100%; height: 100%;
+}
+
+.work-visual img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transform: scale(1.2); /* Parallax inner scale */
+}
+
+.work-meta {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 2;
+}
+
+.work-tags {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+}
+
+.work-title {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 400;
+}
+
+/* --- 05. WHY FALAHCODE --- */
+.sec-why {
+    background: var(--navy);
+    width: 100%;
+    /* REMOVED: height: 400vh. GSAP will handle this. */
+}
+
+.why-pinned {
+    min-height: 100vh; /* Changed from height to min-height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 5vw;
+}
+
+.why-static {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+}
+
+.why-dynamic-wrap {
+    height: 100px;
+    overflow: hidden;
+}
+
+.w-word {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 100px;
+    font-weight: 500;
+}
+
+/* --- 06. CONTACT --- */
+.sec-contact {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black);
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.1;
+}
+
+.c-accent {
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+.cta-wrapper {
+    display: inline-block;
+    padding: 30px;
+}
+
+.btn-primary {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+    padding: 20px 40px;
+    border-radius: 40px;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    pointer-events: none; /* Let the wrapper handle hover */
+}
+
+.cta-wrapper:hover .btn-primary {
+    background: var(--text-main);
+    color: var(--black);
+    transform: scale(1.05);
+}
+
+/* --- 07. FOOTER --- */
+.sec-footer {
+    padding: 40px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    background: var(--black);
+    border-top: 1px solid var(--glass-border);
+}
+
+.foot-right a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 20px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.foot-right a:hover {
+    opacity: 1;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .sec-hero { 
+        flex-direction: column; 
+        justify-content: center; 
+        text-align: center; 
+        padding-top: 150px; /* Added to push hero text below navbar */
+    }
+    .hero-visual-wrapper { position: relative; right: auto; top: auto; transform: none; width: 80vw; height: 80vw; margin-top: 30px; }
+    
+    .build-pinned { flex-direction: column; text-align: center; justify-content: center; gap: 40px; padding: 120px 5vw; }
+    .build-right { width: 90vw; height: 45vh; } /* Reduced height to prevent overlapping next section */
+    
+    .tech-orbit-container { transform: scale(0.6); margin-top: 60px; } 
+    
+    .work-meta { left: 20px; bottom: 20px; }
+    .intro-lockup { flex-direction: column; }
+    .intro-logo { transform: translateY(-100%); }
+    .intro-brand { transform: translateY(100%); }
+}

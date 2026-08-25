@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FalahCode | Digital Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor" class="cursor-dot">
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- INTRO & CURTAIN PEEL LAYER -->
+    <div id="intro-layer">
+        <div class="intro-lockup">
+            <div class="intro-logo-wrap">
+                <img src="assets/falahcode-logo.png" alt="FalahCode Logo" class="intro-logo">
+            </div>
+            <div class="intro-text-wrap">
+                <h1 class="intro-brand">FALAHCODE</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HOMEPAGE CONTENT -->
+    <main id="main-content">
+        
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="assets/falahcode-logo.png" alt="Logo" class="nav-logo">
+                <span>FALAHCODE</span>
+            </div>
+            <div class="nav-menu" data-cursor="OPEN">MENU</div>
+        </nav>
+
+        <!-- 01. HERO -->
+        <section class="sec-hero">
+            <div class="hero-text">
+                <h1 class="hero-line hl-1">WE BUILD</h1>
+                <h1 class="hero-line hl-2">DIGITAL</h1>
+                <h1 class="hero-line hl-3">EXPERIENCES.</h1>
+            </div>
+            <!-- Added perspective wrapper and inner tilt container -->
+            <div class="hero-visual-wrapper" data-cursor="VIEW">
+                <div class="hero-tilt-container">
+                    <img src="assets/hero-object.png" alt="Digital Infrastructure" class="hero-object">
+                    <div class="hero-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. WHAT WE BUILD -->
+        <section class="sec-build">
+            <div class="build-pinned">
+                <div class="build-left">
+                    <h2>WHAT<br>WE<br>BUILD</h2>
+                </div>
+                <div class="build-right">
+                    <div class="build-visual-container">
+                        <img src="assets/build-visual.png" alt="Build Visual" class="build-image">
+                    </div>
+                    <div class="build-labels">
+                        <h3 class="b-label bl-1">WEB</h3>
+                        <h3 class="b-label bl-2">SOFTWARE</h3>
+                        <h3 class="b-label bl-3">AI</h3>
+                        <h3 class="b-label bl-4">MOBILE</h3>
+                        <h3 class="b-label bl-5">DIGITAL PRODUCTS</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- 03. TECHNOLOGY -->
+        <section class="sec-tech">
+            <!-- Added Canvas for Dazzling Star / Data Node Effect -->
+            <canvas id="ecosystem-stars"></canvas>
+            <div class="tech-title">
+                <h2>CORE Ecosystem</h2>
+            </div>
+            
+            <div class="tech-orbit-container">
+                <!-- Visual Orbital Paths (The 4 Rings) with Path Highlighters -->
+                <div class="visual-ring v-ring-ew">
+                    <div class="highlighter-wrap hl-ew"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-ns">
+                    <div class="highlighter-wrap hl-ns"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-nwse">
+                    <div class="highlighter-wrap hl-nwse"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-nesw">
+                    <div class="highlighter-wrap hl-nesw"><div class="highlighter-dot"></div></div>
+                </div>
+
+                <!-- Central Core -->
+                <div class="orbit-center">
+                    <img src="assets/tech-core.png" alt="Tech Core">
+                </div>
+
+                <!-- Orbit 1: East-West (Independent Speed: 36s) -->
+                <div class="tech-node orbit-ew ew-1"><span>React</span></div>
+                <div class="tech-node orbit-ew ew-2"><span>Node.js</span></div>
+                <div class="tech-node orbit-ew ew-3"><span>AWS</span></div>
+                <div class="tech-node orbit-ew ew-4"><span>Python</span></div>
+
+                <!-- Orbit 2: North-South (Independent Speed: 44s) -->
+                <div class="tech-node orbit-ns ns-1"><span>Spring Boot</span></div>
+                <div class="tech-node orbit-ns ns-2"><span>MongoDB</span></div>
+                <div class="tech-node orbit-ns ns-3"><span>Docker</span></div>
+                <div class="tech-node orbit-ns ns-4"><span>Scikit-Learn</span></div>
+
+                <!-- Orbit 3: Northwest-Southeast (Independent Speed: 28s) -->
+                <div class="tech-node orbit-nwse nwse-1"><span>Next.js</span></div>
+                <div class="tech-node orbit-nwse nwse-2"><span>Kubernetes</span></div>
+                <div class="tech-node orbit-nwse nwse-3"><span>TensorFlow</span></div>
+                <div class="tech-node orbit-nwse nwse-4"><span>PostgreSQL</span></div>
+
+                <!-- Orbit 4: Northeast-Southwest (Independent Speed: 40s) -->
+                <div class="tech-node orbit-nesw nesw-1"><span>TypeScript</span></div>
+                <div class="tech-node orbit-nesw nesw-2"><span>Redis</span></div>
+                <div class="tech-node orbit-nesw nesw-3"><span>GraphQL</span></div>
+                <div class="tech-node orbit-nesw nesw-4"><span>Figma</span></div>
+            </div>
+        </section>
+        
+        <!-- 04. SELECTED WORK -->
+        <section class="sec-work">
+            <div class="work-container" data-cursor="OPEN ↗">
+                <div class="work-visual">
+                    <img src="assets/work-placeholder.png" alt="Selected Work">
+                </div>
+                <div class="work-meta">
+                    <p class="work-tags">SOFTWARE / AI / DESIGN</p>
+                    <h2 class="work-title">COMING TO LIFE.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. WHY FALAHCODE -->
+        <section class="sec-why">
+            <div class="why-pinned">
+                <h2 class="why-static">WE CARE ABOUT</h2>
+                <div class="why-dynamic-wrap">
+                    <div class="why-words">
+                        <h2 class="w-word">QUALITY.</h2>
+                        <h2 class="w-word">SPEED.</h2>
+                        <h2 class="w-word">SECURITY.</h2>
+                        <h2 class="w-word">IMPACT.</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. CONTACT -->
+        <section class="sec-contact">
+            <div class="contact-content">
+                <h2>HAVE AN IDEA?</h2>
+                <h2 class="c-accent">LET'S BUILD IT.</h2>
+                <div class="cta-wrapper" data-cursor="LET'S TALK →">
+                    <button class="btn-primary">START A PROJECT</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. FOOTER -->
+        <footer class="sec-footer">
+            <div class="foot-left">© 2026 FALAHCODE</div>
+            <div class="foot-right">
+                <a href="#">TWITTER</a>
+                <a href="#">LINKEDIN</a>
+                <a href="#">GITHUB</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
