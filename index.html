@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FalahCode | Digital Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor" class="cursor-dot">
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- FULL-SCREEN MENU OVERLAY -->
+    <div id="full-menu" class="full-menu-overlay" aria-hidden="true">
+        <div class="menu-header">
+            <div class="menu-brand">
+                <img src="assets/falahcode-logo.png" alt="FalahCode Logo" class="menu-logo">
+                <span class="menu-brand-text">FALAHCODE</span>
+            </div>
+            <button class="menu-close-btn" data-cursor="CLOSE" aria-label="Close menu">✕</button>
+        </div>
+        
+        <div class="menu-body">
+            <nav class="menu-nav">
+                <a href="#home" class="menu-link" data-cursor="GO ↗"><span class="menu-num">01</span> HOME</a>
+                <a href="#services" class="menu-link" data-cursor="GO ↗"><span class="menu-num">02</span> SERVICES</a>
+                <a href="#ecosystem" class="menu-link" data-cursor="GO ↗"><span class="menu-num">03</span> CORE ECOSYSTEM</a>
+                <a href="#work" class="menu-link" data-cursor="GO ↗"><span class="menu-num">04</span> SELECTED WORK</a>
+                <a href="#contact" class="menu-link" data-cursor="GO ↗"><span class="menu-num">05</span> CONTACT</a>
+            </nav>
+            
+            <div class="menu-secondary">
+                <p class="menu-contact-info">hello@falahcodetech.com</p>
+                <div class="menu-socials">
+                    <a href="#" data-cursor="VIEW ↗">LinkedIn</a>
+                    <a href="#" data-cursor="VIEW ↗">Twitter</a>
+                    <a href="#" data-cursor="VIEW ↗">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTRO & CURTAIN PEEL LAYER -->
+    <div id="intro-layer">
+        <div class="intro-lockup">
+            <div class="intro-logo-wrap">
+                <img src="assets/falahcode-logo.png" alt="FalahCode Logo" class="intro-logo">
+            </div>
+            <div class="intro-text-wrap">
+                <h1 class="intro-brand">FALAHCODE</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HOMEPAGE CONTENT -->
+    <main id="main-content">
+        
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="assets/falahcode-logo.png" alt="Logo" class="nav-logo">
+                <span class="nav-brand-text">FALAHCODE</span>
+            </div>
+            <div class="nav-controls" style="display: flex; align-items: center; gap: 30px;">
+                <button id="theme-toggle" class="theme-toggle" data-cursor="SWITCH THEME" aria-label="Toggle Light/Dark Mode">
+                    <span class="sun-icon">☼</span>
+                    <span class="moon-icon">☾</span>
+                </button>
+                <div class="nav-menu" data-cursor="OPEN" tabindex="0" role="button" aria-expanded="false" aria-controls="full-menu">MENU</div>
+            </div>
+        </nav>
+
+        <!-- 01. HERO -->
+        <section id="home" class="sec-hero">
+            <div class="hero-text">
+                <h1 class="hero-line hl-1">WE BUILD</h1>
+                <h1 class="hero-line hl-2">DIGITAL</h1>
+                <h1 class="hero-line hl-3">EXPERIENCES.</h1>
+            </div>
+            <!-- Added perspective wrapper and inner tilt container -->
+            <div class="hero-visual-wrapper" data-cursor="VIEW">
+                <div class="hero-tilt-container">
+                    <img src="assets/hero-object.png" alt="Digital Infrastructure" class="hero-object">
+                    <div class="hero-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. WHAT WE BUILD -->
+        <section id="services" class="sec-build">
+            <div class="build-pinned">
+                <div class="build-left">
+                    <h2>WHAT<br>WE<br>BUILD</h2>
+                </div>
+                <div class="build-right">
+                    <div class="build-visual-container">
+                        <img src="assets/build-visual.png" alt="Build Visual" class="build-image">
+                    </div>
+                    <div class="build-labels">
+                        <h3 class="b-label bl-1">WEB</h3>
+                        <h3 class="b-label bl-2">SOFTWARE</h3>
+                        <h3 class="b-label bl-3">AI</h3>
+                        <h3 class="b-label bl-4">MOBILE</h3>
+                        <h3 class="b-label bl-5">DIGITAL PRODUCTS</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- 03. TECHNOLOGY -->
+        <section id="ecosystem" class="sec-tech">
+            <!-- Added Canvas for Dazzling Star / Data Node Effect -->
+            <canvas id="ecosystem-stars"></canvas>
+            <div class="tech-title">
+                <h2>CORE ECOSYSTEM</h2>
+            </div>
+            
+            <div class="tech-orbit-container">
+                <!-- Visual Orbital Paths (The 4 Rings) with Path Highlighters -->
+                <div class="visual-ring v-ring-ew">
+                    <div class="highlighter-wrap hl-ew"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-ns">
+                    <div class="highlighter-wrap hl-ns"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-nwse">
+                    <div class="highlighter-wrap hl-nwse"><div class="highlighter-dot"></div></div>
+                </div>
+                <div class="visual-ring v-ring-nesw">
+                    <div class="highlighter-wrap hl-nesw"><div class="highlighter-dot"></div></div>
+                </div>
+
+                <!-- Central Core -->
+                <div class="orbit-center">
+                    <img src="assets/tech-core.png" alt="Tech Core">
+                </div>
+
+                <!-- Orbit 1: East-West (Independent Speed: 36s) -->
+                <div class="tech-node orbit-ew ew-1"><span>React</span></div>
+                <div class="tech-node orbit-ew ew-2"><span>Node.js</span></div>
+                <div class="tech-node orbit-ew ew-3"><span>AWS</span></div>
+                <div class="tech-node orbit-ew ew-4"><span>Python</span></div>
+
+                <!-- Orbit 2: North-South (Independent Speed: 44s) -->
+                <div class="tech-node orbit-ns ns-1"><span>Spring Boot</span></div>
+                <div class="tech-node orbit-ns ns-2"><span>MongoDB</span></div>
+                <div class="tech-node orbit-ns ns-3"><span>Docker</span></div>
+                <div class="tech-node orbit-ns ns-4"><span>Scikit-Learn</span></div>
+
+                <!-- Orbit 3: Northwest-Southeast (Independent Speed: 28s) -->
+                <div class="tech-node orbit-nwse nwse-1"><span>Next.js</span></div>
+                <div class="tech-node orbit-nwse nwse-2"><span>Kubernetes</span></div>
+                <div class="tech-node orbit-nwse nwse-3"><span>TensorFlow</span></div>
+                <div class="tech-node orbit-nwse nwse-4"><span>PostgreSQL</span></div>
+
+                <!-- Orbit 4: Northeast-Southwest (Independent Speed: 40s) -->
+                <div class="tech-node orbit-nesw nesw-1"><span>TypeScript</span></div>
+                <div class="tech-node orbit-nesw nesw-2"><span>Redis</span></div>
+                <div class="tech-node orbit-nesw nesw-3"><span>GraphQL</span></div>
+                <div class="tech-node orbit-nesw nesw-4"><span>Figma</span></div>
+            </div>
+        </section>
+        
+        <!-- 04. SELECTED WORK -->
+        <section id="work" class="sec-work">
+            <div class="work-header">
+                <h2>SELECTED WORK</h2>
+                <p class="work-subtitle">Digital Solutions. Real Impact.</p>
+            </div>
+
+            <!-- ROW 1: Moves Left -->
+            <div class="portfolio-track track-left">
+                <div class="portfolio-row">
+                    <!-- Original Set -->
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-xerox.jpg" alt="Xerox Cloud"></div>
+                        <div class="card-meta"><span>01</span><h3>XEROX CLOUD</h3><p>SaaS / Cloud Printing</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-travo.jpg" alt="Travo"></div>
+                        <div class="card-meta"><span>02</span><h3>TRAVO</h3><p>Travel / Mobile App</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-army.jpg" alt="Army Camp IMS"></div>
+                        <div class="card-meta"><span>03</span><h3>ARMY CAMP IMS</h3><p>Enterprise / Software</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-svamiksh.jpg" alt="Svamiksh"></div>
+                        <div class="card-meta"><span>04</span><h3>SVAMIKSH</h3><p>Wellness / D2C</p></div>
+                    </div>
+                    <!-- Duplicated Set for Infinite Loop -->
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-xerox.jpg" alt="Xerox Cloud"></div>
+                        <div class="card-meta"><span>01</span><h3>XEROX CLOUD</h3><p>SaaS / Cloud Printing</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-travo.jpg" alt="Travo"></div>
+                        <div class="card-meta"><span>02</span><h3>TRAVO</h3><p>Travel / Mobile App</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-army.jpg" alt="Army Camp IMS"></div>
+                        <div class="card-meta"><span>03</span><h3>ARMY CAMP IMS</h3><p>Enterprise / Software</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-svamiksh.jpg" alt="Svamiksh"></div>
+                        <div class="card-meta"><span>04</span><h3>SVAMIKSH</h3><p>Wellness / D2C</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 2: Moves Right -->
+            <div class="portfolio-track track-right">
+                <div class="portfolio-row">
+                    <!-- Original Set -->
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-born21.jpg" alt="Born 21"></div>
+                        <div class="card-meta"><span>05</span><h3>BORN 21</h3><p>Creator Economy</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-kms.jpg" alt="KMS Consultants"></div>
+                        <div class="card-meta"><span>06</span><h3>KMS CONSULTANTS</h3><p>Business Consulting</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-muhajir.jpg" alt="Al Muhajir"></div>
+                        <div class="card-meta"><span>07</span><h3>AL MUHAJIR</h3><p>Spiritual Travel</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-kgn.jpg" alt="KGN Caterers"></div>
+                        <div class="card-meta"><span>08</span><h3>KGN CATERERS</h3><p>Food & Events</p></div>
+                    </div>
+                    <!-- Duplicated Set for Infinite Loop -->
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-born21.jpg" alt="Born 21"></div>
+                        <div class="card-meta"><span>05</span><h3>BORN 21</h3><p>Creator Economy</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-kms.jpg" alt="KMS Consultants"></div>
+                        <div class="card-meta"><span>06</span><h3>KMS CONSULTANTS</h3><p>Business Consulting</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-muhajir.jpg" alt="Al Muhajir"></div>
+                        <div class="card-meta"><span>07</span><h3>AL MUHAJIR</h3><p>Spiritual Travel</p></div>
+                    </div>
+                    <div class="portfolio-card" data-cursor="VIEW PROJECT ↗">
+                        <div class="card-img-wrap"><img src="assets/placeholder-kgn.jpg" alt="KGN Caterers"></div>
+                        <div class="card-meta"><span>08</span><h3>KGN CATERERS</h3><p>Food & Events</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. WHY FALAHCODE -->
+        <section class="sec-why">
+            <div class="why-pinned">
+                <h2 class="why-static">WE CARE ABOUT</h2>
+                <div class="why-dynamic-wrap">
+                    <div class="why-words">
+                        <h2 class="w-word">QUALITY.</h2>
+                        <h2 class="w-word">SPEED.</h2>
+                        <h2 class="w-word">SECURITY.</h2>
+                        <h2 class="w-word">IMPACT.</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- 06. CONTACT -->
+        <section id="contact" class="sec-contact">
+            <div class="contact-container">
+                <div class="contact-text">
+                    <h2>HAVE AN IDEA?</h2>
+                    <h2 class="c-accent">LET'S BUILD IT.</h2>
+                </div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="YOUR NAME *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS *" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="projectType" name="projectType" required>
+                            <option value="" disabled selected>PROJECT TYPE *</option>
+                            <option value="Web/App">Web or Web App Project</option>
+                            <option value="Software">Product & Software Engineering</option>
+                            <option value="AI">AI, LLM or Automation</option>
+                            <option value="Marketing">Digital Growth & Marketing</option>
+                            <option value="Other">Something Else</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="PROJECT DETAILS *" rows="4" required></textarea>
+                    </div>
+                    <!-- Honeypot for spam protection -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <button type="submit" class="btn-primary" data-cursor="SEND ↗">
+                        <span class="btn-text">START A PROJECT</span>
+                    </button>
+                    <div id="formFeedback" class="form-feedback"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 07. FOOTER -->
+        <footer class="sec-footer">
+            <div class="foot-left">© 2026 FALAHCODE</div>
+            <div class="foot-right">
+                <!-- <a href="#">TWITTER</a> -->
+                <a href="https://www.linkedin.com/company/falahcode-softtech/posts/?feedView=all">LINKEDIN</a>
+                <a href="https://www.instagram.com/falahcode">INSTAGRAM</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
